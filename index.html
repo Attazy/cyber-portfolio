@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cybersecurity Portfolio | Wazuh & ML Detection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <nav class="nav">
+      <div class="logo">Cyber Defense</div>
+      <div class="nav-links">
+        <a href="#home">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+    <header class="hero" id="home">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Cyber Defense</p>
+          <h1>Muhammad Hatta Rajasa | Cyber Security Engineer | SIEM & IDS/IPS </h1>
+          <p class="lede">Cyber Security Engineer focused on Wazuh SIEM, IDS/IPS tuning, and ML-based anomaly detection. I turn noisy security logs into real-time signals with a Linux-first approach.</p>
+          <div class="hero-actions">
+            <a class="btn ghost" href="#contact">Contact</a>
+            <a class="btn outline" href="https://drive.google.com/uc?export=download&id=1He1x4osWwlS2B5gsctQ0QGAbZfhGaKvD" target="_blank" rel="noopener">Download CV</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img class="avatar" src="Foto1.png" alt="Profile photo" />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- About section removed per request to keep home minimal; details can be linked via toolbar. -->
+
+      <section id="skills" class="section cards hidden">
+        <div class="section-header">
+          <p class="eyebrow">Skills</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Hard Skills</h3>
+            <ul>
+              <li>SIEM (Wazuh): deployment, agent management, rules/decoders, dashboards</li>
+              <li>IDS/IPS: detection tuning, false-positive reduction, threat pattern analysis</li>
+              <li>Security testing (web): functional & security testing on production websites</li>
+              <li>Detection use cases: brute force, port scanning, denial-of-service (DoS)</li>
+              <li>Machine Learning for security: Random Forest for intrusion/anomaly detection</li>
+              <li>Python: log preprocessing, automation, feature engineering</li>
+              <li>Linux (Ubuntu/Debian): system hardening, scripting, log analysis</li>
+              <li>Network monitoring: authentication, network, and system log correlation</li>
+              <li>Incident analysis: alert validation and root cause identification</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Soft Skills</h3>
+            <ul>
+              <li>Critical thinking: analyzing alerts, identifying root causes, validating detections</li>
+              <li>Problem solving: resolving security issues and improving detection logic</li>
+              <li>Analytical triage: prioritizing alerts and turning noise into actionable insights</li>
+              <li>Attention to detail: validating findings during log analysis and website testing</li>
+              <li>Documentation & runbooks: creating clear steps for incident handling</li>
+              <li>Collaboration: working with security and engineering teams</li>
+              <li>Technical communication: explaining findings and detection logic clearly</li>
+              <li>Continuous learning: staying current on SIEM, IDS/IPS, and security practices</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section hidden">
+        <div class="section-header">
+          <p class="eyebrow">Projects</p>
+        </div>
+        <div class="project-list">
+          <article class="project-card">
+            <header>
+              <h3>SIEM + ML Anomaly Detection</h3>
+              <span class="tag">Wazuh · ML</span>
+            </header>
+            <p>Integrated Random Forest into Wazuh SIEM to catch network anomalies in real time, complementing rule-based detection with data-driven scoring.</p>
+            <ul class="bullets">
+              <li>Focus: brute force, port scanning, DoS.</li>
+              <li>Tech: Wazuh, Python, Random Forest, Linux.</li>
+              <li>Flow: rules/decoders → feature pipeline → RF scoring → alert thresholding.</li>
+              <li>Outcome: higher precision on priority alerts with ML-backed validation.</li>
+            </ul>
+          </article>
+          <article class="project-card">
+            <header>
+              <h3>SentinelAI — AI Threat Detection Platform</h3>
+              <span class="tag">ML · MITRE ATT&CK</span>
+            </header>
+            <p>ML-driven threat detection platform with real-time dashboards and MITRE ATT&CK mapping for investigation.</p>
+            <ul class="bullets">
+              <li>Detects: SQLi, XSS, brute force, port scan, DDoS, malware.</li>
+              <li>Tech: FastAPI, Isolation Forest, WebSocket, React.</li>
+              <li>Outcome: interactive view of alerts mapped to ATT&CK for faster triage.</li>
+            </ul>
+          </article>
+          <article class="project-card">
+            <header>
+              <h3>Offensive Security Modular Framework</h3>
+              <span class="tag">OffSec</span>
+            </header>
+            <p>Modular penetration testing framework covering recon, vuln scanning, exploitation, post-exploitation, and reporting.</p>
+            <ul class="bullets">
+              <li>Scope: web security, WAF bypass, post-exploitation.</li>
+              <li>Tech: Python, custom modules, reporting engine.</li>
+              <li>Outcome: end-to-end test flow with reusable modules and professional reports.</li>
+            </ul>
+          </article>
+          <article class="project-card">
+            <header>
+              <h3>Web Security Testing (Production)</h3>
+              <span class="tag">Security Testing</span>
+            </header>
+            <p>Manual and tool-assisted testing on production websites to surface exploitable issues and remediation steps.</p>
+            <ul class="bullets">
+              <li>Focus: input validation, authentication, attack surface review.</li>
+              <li>Role: security tester providing prioritized fixes.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience" class="section timeline hidden">
+        <div class="section-header">
+          <p class="eyebrow">Experience</p>
+          
+        </div>
+        <div class="timeline-list">
+          <div class="timeline-item">
+            <div class="timeline-date">2025</div>
+            <div class="timeline-content">
+              <h3>Cyber Security Intern — Sisinfo, Lembaga Ketahanan Republik Indonesia</h3>
+              <p>Implemented Wazuh SIEM for multi-endpoint monitoring and integrated Random Forest to detect cyber attack anomalies.</p>
+              <ul class="bullets">
+                <li>Implemented Wazuh SIEM for centralized security monitoring.</li>
+                <li>Analyzed and processed security logs as research data for anomaly detection.</li>
+                <li>Integrated Machine Learning (Random Forest) into SIEM for anomaly detection.</li>
+                <li>Evaluated detection performance using accuracy, precision, recall, and F1-score.</li>
+                <li>Strengthened cyber defense with a hybrid rule-based + ML approach.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2024</div>
+            <div class="timeline-content">
+              <h3>IT Intern — Sisinfo, Lembaga Ketahanan Republik Indonesia</h3>
+              <p>Focused on Linux servers and hardening while supporting production sites.</p>
+              <ul class="bullets">
+                <li>Assisted in Linux-based server management and website maintenance.</li>
+                <li>Performed routine backup, restoration, and data migration for availability.</li>
+                <li>Supported server hardening: firewall config, system updates, access control.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2020–2021</div>
+            <div class="timeline-content">
+              <h3>Service Center — Universitas Muhammadiyah Purwokerto</h3>
+              <p>Provided hands-on technical support; built baseline troubleshooting skills.</p>
+              <ul class="bullets">
+                <li>Hardware troubleshooting and OS installation.</li>
+                <li>Developed foundational system troubleshooting and problem solving.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="section hidden">
+        <div class="section-header">
+          <p class="eyebrow">Education</p>
+          
+        </div>
+        <div class="education-cards">
+          <div class="card">
+            <h3>Bachelor of Informatics — Telkom University Purwokerto</h3>
+            <p>Focus: Cyber Security, SIEM, and Machine Learning.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="certifications" class="section hidden">
+        <div class="section-header">
+          <p class="eyebrow">Certifications & Training</p>
+        </div>
+        <div class="education-cards">
+          <div class="card">
+            <h3>Google Cybersecurity Professional Certificate — Coursera (Google), 2025</h3>
+            <p>Comprehensive security foundations: threat detection, incident response, SIEM fundamentals, and hands-on labs.</p>
+              <a class="btn outline" href="https://drive.google.com/file/d/1N8fQ1M4CKTr8q-VT08PGoHtE9ah-lnFV/view?usp=sharing" target="_blank" rel="noopener">Preview</a>
+          </div>
+          <div class="card">
+            <h3>Cyber Security Course Level Basic — ITBOX</h3>
+            <p>Entry-level cyber security course covering core concepts and practical defensive techniques.</p>
+              <a class="btn outline" href="https://drive.google.com/file/d/1MlLco4tak2BGLgNxRs8aQgQ8t3cEB8Xj/view?usp=sharing" target="_blank" rel="noopener">Preview</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="section hidden">
+        <div class="section-header">
+          <p class="eyebrow">Research</p>
+        </div>
+        <div class="education-cards">
+          <div class="card">
+            <h3>Implementation of Wazuh in SIEM with Machine Learning (Random Forest) for Anomaly Detection</h3>
+            <p>Undergraduate Thesis · Applied Cybersecurity Research.</p>
+            <ul class="bullets">
+              <li>Researched anomaly detection by integrating Machine Learning into Wazuh-based SIEM.</li>
+              <li>Designed a hybrid detection approach combining rule-based SIEM and Random Forest.</li>
+              <li>Built a log-based detection pipeline for brute force, port scanning, and DoS attacks.</li>
+              <li>Evaluated system performance using accuracy, precision, recall, and F1-score.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact hidden">
+        <div class="section-header">
+          <p class="eyebrow">Contact</p>
+        </div>
+        <p class="section-text">Open to opportunities in cybersecurity engineering, detection system development, and SIEM with Machine Learning.  
+Please reach out via email, LinkedIn, or GitHub.
+</p>
+        <div class="contact-actions">
+          <a class="btn primary" href="mailto:haraja682@gmail.com">Email</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/muhammad-hatta-rajasa/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn outline" href="https://github.com/Attazy" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>CyberSec Portofolio</span>
+    </footer>
+  </div>
+  <script>
+    const sections = ['skills','projects','experience','education','certifications','research','contact'];
+    const links = document.querySelectorAll('a[href^="#"]');
+    const hero = document.getElementById('home');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    // Prepare elements for staggered reveal
+    const fadeTargets = document.querySelectorAll('.hero-grid > div, .hero-card, .section .card, .section .project-card, .section .timeline-item, .section .education-cards, .section .contact-actions');
+    fadeTargets.forEach(el => el.classList.add('fade-in'));
+
+    function setActiveLink(id) {
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href') || '';
+        link.classList.toggle('active', href === `#${id}`);
+      });
+    }
+
+    function animateSection(id) {
+      if (id === 'home') {
+        const heroItems = document.querySelectorAll('.hero .fade-in');
+        heroItems.forEach((el, idx) => {
+          el.classList.remove('show');
+          setTimeout(() => el.classList.add('show'), 80 * idx + 80);
+        });
+        return;
+      }
+      const section = document.getElementById(id);
+      if (!section) return;
+      const items = section.querySelectorAll('.fade-in');
+      items.forEach((el, idx) => {
+        el.classList.remove('show');
+        setTimeout(() => el.classList.add('show'), 80 * idx + 80);
+      });
+    }
+
+    function showSection(id) {
+      if (id === 'home') {
+        if (hero) hero.classList.remove('hidden');
+        sections.forEach(secId => {
+          const el = document.getElementById(secId);
+          if (el) el.classList.add('hidden');
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setActiveLink('home');
+        animateSection('home');
+        return;
+      }
+
+      if (hero) hero.classList.add('hidden');
+      sections.forEach(secId => {
+        const el = document.getElementById(secId);
+        if (!el) return;
+        if (secId === id) {
+          el.classList.remove('hidden');
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          animateSection(id);
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+      setActiveLink(id);
+    }
+
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        const href = link.getAttribute('href') || '';
+        if (!href.startsWith('#')) return;
+        e.preventDefault();
+        const target = href.slice(1);
+        showSection(target);
+      });
+    });
+
+    // Custom cursor: dot follows instantly; ring trails, scales on hover/click
+    document.addEventListener('mousemove', e => {
+      cursorPos = { x: e.clientX, y: e.clientY };
+      if (cursorDot) cursorDot.style.transform = `translate(${cursorPos.x}px, ${cursorPos.y}px)`;
+    });
+
+    document.addEventListener('mousedown', () => { isDown = true; });
+    document.addEventListener('mouseup', () => { isDown = false; });
+
+    // Subtle parallax tilt for the hero card
+    const heroCard = document.querySelector('.hero-card');
+    if (heroCard) {
+      heroCard.addEventListener('mousemove', e => {
+        const rect = heroCard.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
+        heroCard.style.transform = `perspective(900px) rotateY(${x}deg) rotateX(${-y}deg)`;
+      });
+      heroCard.addEventListener('mouseleave', () => {
+        heroCard.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg)';
+      });
+    }
+
+    // Kick off initial animation on load
+    animateSection('home');
+  </script>
+</body>
+</html>
