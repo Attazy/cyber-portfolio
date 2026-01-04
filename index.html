@@ -20,44 +20,10 @@
       z-index: 9999;
       transition: width 120ms ease-out;
     }
-
-    #back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      background: rgba(18, 24, 38, 0.85);
-      color: #e8f0ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(8px);
-      transition: opacity 160ms ease, transform 200ms ease, border-color 160ms ease, background 160ms ease;
-      backdrop-filter: blur(6px);
-      cursor: pointer;
-    }
-
-    #back-to-top.show {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    #back-to-top:hover {
-      background: rgba(26, 34, 52, 0.95);
-      border-color: rgba(255, 255, 255, 0.45);
-    }
   </style>
 </head>
 <body>
   <div id="scroll-progress"></div>
-  <button id="back-to-top" aria-label="Back to top">&uarr;</button>
   <div class="page">
     <nav class="nav">
       <div class="logo">Cyber Security</div>
@@ -75,7 +41,7 @@
     <header class="hero" id="home">
       <div class="hero-grid">
         <div>
-          <p class="eyebrow">Cyber Security</p>
+          <p class="eyebrow">About</p>
           <h1>Muhammad Hatta Rajasa | Cyber Security Engineer | SIEM & Detection Engineering</h1>
           <p class="lede">Cyber Security Engineer focused on SIEM operations and detection engineering (Wazuh) with ML-driven anomaly detection. I turn noisy security logs into real-time signals with a Linux-first approach.</p>
           <div class="hero-actions">
@@ -310,7 +276,6 @@ Please reach out via email, LinkedIn, or GitHub.
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorRing = document.querySelector('.cursor-ring');
     const progressBar = document.getElementById('scroll-progress');
-    const backToTop = document.getElementById('back-to-top');
     let cursorPos = { x: 0, y: 0 };
     let isDown = false;
 
@@ -341,19 +306,7 @@ Please reach out via email, LinkedIn, or GitHub.
       const pct = docHeight > 0 ? (scrolled / docHeight) * 100 : 0;
       progressBar.style.width = `${pct}%`;
     }
-
-    function toggleBackToTop() {
-      if (!backToTop) return;
-      const shouldShow = window.scrollY > 240;
-      backToTop.classList.toggle('show', shouldShow);
-    }
-
-    function handleScroll() {
-      updateProgress();
-      toggleBackToTop();
-    }
-
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', updateProgress);
     window.addEventListener('resize', updateProgress);
 
     function setActiveLink(id) {
@@ -435,12 +388,6 @@ Please reach out via email, LinkedIn, or GitHub.
       document.addEventListener('mouseup', () => { isDown = false; });
     }
 
-    if (backToTop) {
-      backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-
     // Subtle parallax tilt for the hero card
     const heroCard = document.querySelector('.hero-card');
     if (heroCard) {
@@ -458,7 +405,6 @@ Please reach out via email, LinkedIn, or GitHub.
     // Kick off initial animation on load
     animateSection('home');
     updateProgress();
-    toggleBackToTop();
   </script>
 </body>
 </html>
