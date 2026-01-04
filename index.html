@@ -3,16 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cyber Security portfolio — SIEM (Wazuh), detection engineering, dan ML anomaly detection oleh Muhammad Hatta Rajasa." />
   <title>Cybersecurity Portfolio | Wazuh & ML Detection</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0;
+      background: linear-gradient(90deg, #5ddcff, #3c67e3 43%, #4e00c2);
+      z-index: 9999;
+      transition: width 120ms ease-out;
+    }
+
+    #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(18, 24, 38, 0.85);
+      color: #e8f0ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 160ms ease, transform 200ms ease, border-color 160ms ease, background 160ms ease;
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+    }
+
+    #back-to-top.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    #back-to-top:hover {
+      background: rgba(26, 34, 52, 0.95);
+      border-color: rgba(255, 255, 255, 0.45);
+    }
+  </style>
 </head>
 <body>
+  <div id="scroll-progress"></div>
+  <button id="back-to-top" aria-label="Back to top">&uarr;</button>
   <div class="page">
     <nav class="nav">
-      <div class="logo">Cyber Defense</div>
+      <div class="logo">Cyber Security</div>
       <div class="nav-links">
         <a href="#home">About</a>
         <a href="#skills">Skills</a>
@@ -27,16 +75,21 @@
     <header class="hero" id="home">
       <div class="hero-grid">
         <div>
-          <p class="eyebrow">Cyber Defense</p>
-          <h1>Muhammad Hatta Rajasa | Cyber Security Engineer | SIEM & IDS/IPS </h1>
-          <p class="lede">Cyber Security Engineer focused on Wazuh SIEM, IDS/IPS tuning, and ML-based anomaly detection. I turn noisy security logs into real-time signals with a Linux-first approach.</p>
+          <p class="eyebrow">Cyber Security</p>
+          <h1>Muhammad Hatta Rajasa | Cyber Security Engineer | SIEM & Detection Engineering</h1>
+          <p class="lede">Cyber Security Engineer focused on SIEM operations and detection engineering (Wazuh) with ML-driven anomaly detection. I turn noisy security logs into real-time signals with a Linux-first approach.</p>
           <div class="hero-actions">
             <a class="btn ghost" href="#contact">Contact</a>
             <a class="btn outline" href="https://drive.google.com/uc?export=download&id=1He1x4osWwlS2B5gsctQ0QGAbZfhGaKvD" target="_blank" rel="noopener">Download CV</a>
           </div>
+          <ul class="about-list">
+            <li><span>Based in:</span> Purwokerto, Indonesia</li>
+            <li><span>Focus:</span> SIEM & detection engineering (Wazuh), ML anomaly detection</li>
+            <li><span>Deliverables:</span> detection content, dashboards, response runbooks</li>
+          </ul>
         </div>
         <div class="hero-card">
-          <img class="avatar" src="Foto1.png" alt="Profile photo" />
+          <img class="avatar" src="Foto1.png" alt="Profile photo" width="320" height="360" loading="lazy" />
         </div>
       </div>
     </header>
@@ -246,23 +299,70 @@ Please reach out via email, LinkedIn, or GitHub.
     </main>
 
     <footer class="footer">
-      <span>CyberSec Portofolio</span>
-    </footer>
+      <span>CySec Portofolio</span>
+    </footer> 
   </div>
   <script>
     const sections = ['skills','projects','experience','education','certifications','research','contact'];
     const links = document.querySelectorAll('a[href^="#"]');
     const hero = document.getElementById('home');
     const navLinks = document.querySelectorAll('.nav-links a');
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorRing = document.querySelector('.cursor-ring');
+    const progressBar = document.getElementById('scroll-progress');
+    const backToTop = document.getElementById('back-to-top');
+    let cursorPos = { x: 0, y: 0 };
+    let isDown = false;
 
     // Prepare elements for staggered reveal
     const fadeTargets = document.querySelectorAll('.hero-grid > div, .hero-card, .section .card, .section .project-card, .section .timeline-item, .section .education-cards, .section .contact-actions');
     fadeTargets.forEach(el => el.classList.add('fade-in'));
 
+    // Reveal on scroll using IntersectionObserver
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('show');
+          });
+        },
+        { threshold: 0.18, rootMargin: '0px 0px -5%' }
+      );
+      fadeTargets.forEach(el => observer.observe(el));
+    } else {
+      fadeTargets.forEach(el => el.classList.add('show'));
+    }
+
+    // Scroll progress bar
+    function updateProgress() {
+      if (!progressBar) return;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = window.scrollY;
+      const pct = docHeight > 0 ? (scrolled / docHeight) * 100 : 0;
+      progressBar.style.width = `${pct}%`;
+    }
+
+    function toggleBackToTop() {
+      if (!backToTop) return;
+      const shouldShow = window.scrollY > 240;
+      backToTop.classList.toggle('show', shouldShow);
+    }
+
+    function handleScroll() {
+      updateProgress();
+      toggleBackToTop();
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', updateProgress);
+
     function setActiveLink(id) {
       navLinks.forEach(link => {
         const href = link.getAttribute('href') || '';
-        link.classList.toggle('active', href === `#${id}`);
+        const active = href === `#${id}`;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
       });
     }
 
@@ -285,13 +385,15 @@ Please reach out via email, LinkedIn, or GitHub.
     }
 
     function showSection(id) {
+      // Always reset scroll to top when switching sections
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
       if (id === 'home') {
         if (hero) hero.classList.remove('hidden');
         sections.forEach(secId => {
           const el = document.getElementById(secId);
           if (el) el.classList.add('hidden');
         });
-        window.scrollTo({ top: 0, behavior: 'smooth' });
         setActiveLink('home');
         animateSection('home');
         return;
@@ -303,10 +405,10 @@ Please reach out via email, LinkedIn, or GitHub.
         if (!el) return;
         if (secId === id) {
           el.classList.remove('hidden');
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
           animateSection(id);
         } else {
           el.classList.add('hidden');
+          el.querySelectorAll('.fade-in').forEach(f => f.classList.remove('show'));
         }
       });
       setActiveLink(id);
@@ -323,13 +425,21 @@ Please reach out via email, LinkedIn, or GitHub.
     });
 
     // Custom cursor: dot follows instantly; ring trails, scales on hover/click
-    document.addEventListener('mousemove', e => {
-      cursorPos = { x: e.clientX, y: e.clientY };
-      if (cursorDot) cursorDot.style.transform = `translate(${cursorPos.x}px, ${cursorPos.y}px)`;
-    });
+    if (cursorDot || cursorRing) {
+      document.addEventListener('mousemove', e => {
+        cursorPos = { x: e.clientX, y: e.clientY };
+        if (cursorDot) cursorDot.style.transform = `translate(${cursorPos.x}px, ${cursorPos.y}px)`;
+      });
 
-    document.addEventListener('mousedown', () => { isDown = true; });
-    document.addEventListener('mouseup', () => { isDown = false; });
+      document.addEventListener('mousedown', () => { isDown = true; });
+      document.addEventListener('mouseup', () => { isDown = false; });
+    }
+
+    if (backToTop) {
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
 
     // Subtle parallax tilt for the hero card
     const heroCard = document.querySelector('.hero-card');
@@ -347,6 +457,8 @@ Please reach out via email, LinkedIn, or GitHub.
 
     // Kick off initial animation on load
     animateSection('home');
+    updateProgress();
+    toggleBackToTop();
   </script>
 </body>
 </html>
